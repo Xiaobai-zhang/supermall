@@ -2,7 +2,7 @@
   <swiper ref="swiper">
     <swiper-item v-for="(item, index) in banners">
       <a :href="item.link">
-        <img :src="item.image" alt="">
+        <img :src="item.image" alt="" @load="imageLoad">
       </a>
     </swiper-item>
   </swiper>
@@ -17,7 +17,7 @@
       banners: {
         type: Array,
         required: true
-      }
+      },
     },
     data() {
     	return {
@@ -35,12 +35,16 @@
       stopTimer() {
         this.$refs.swiper && this.$refs.swiper.stopTimer()
       },
-	    imageLoaded() {
-      	if (!this.isLoaded) {
-      		this.$emit('swiperLoaded')
+      imageLoad() {
+      	// 'if (!this.isLoaded) {
+      	// 	this.$emit('swiperLoaded')
+        //   this.isLoaded = true
+        // }'
+        if(!this.isLoaded){
+          this.$emit('swiperLoaded')
           this.isLoaded = true
         }
-	    }
+      }
     }
   }
 </script>

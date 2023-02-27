@@ -1,5 +1,5 @@
 <template>
-  <tab-bar>
+  <tab-bar id="tab-bar">
     <tab-bar-item path="/home" activeColor="blue">
       <template v-slot:item-icon>
         <img  src="~assets/img/tabbar/home.svg" alt="">
@@ -60,6 +60,12 @@
 </script>
 
 <style scoped>
+#tab-bar{
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  z-index: 11111;
+}
 .tab-bar-item {
   flex: 1;
   text-align: center;
